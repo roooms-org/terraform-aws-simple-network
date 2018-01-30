@@ -1,6 +1,6 @@
 # Terraform AWS Network
 
-Provision simple networking infrstructure in AWS.
+Provision simple networking infrastructure in AWS.
 
 * VPC
 * Internet gateway and "public" route table

@@ -1,5 +1,3 @@
-data "aws_availability_zones" "available" {}
-
 resource "aws_vpc" "main" {
   cidr_block           = "10.19.0.0/16"
   enable_dns_hostnames = true
@@ -34,18 +32,17 @@ resource "aws_route_table" "main" {
 }
 
 resource "aws_route_table_association" "main" {
-  subnet_id      = "${aws_subnet.public.id}"
+  subnet_id      = "${aws_subnet.main.id}"
   route_table_id = "${aws_route_table.main.id}"
 }
 
-resource "aws_subnet" "public" {
+resource "aws_subnet" "main" {
   cidr_block              = "10.19.1.0/24"
   vpc_id                  = "${aws_vpc.main.id}"
-  availability_zone       = "${data.aws_availability_zones.available.names[0]}"
   map_public_ip_on_launch = true
 
   tags {
-    Name        = "${var.config_name}_aws_subnet_public"
+    Name        = "${var.config_name}_aws_subnet_main"
     Config_Name = "${var.config_name}"
     Tier        = "public"
   }

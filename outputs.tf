@@ -3,7 +3,7 @@ output "vpc_id" {
   value       = "${aws_vpc.main.id}"
 }
 
-output "public_subnet_ids" {
-  description = "Public subnet IDs"
-  value       = "${aws_subnet.public.*.id}"
+output "subnet_id" {
+  description = "Subnet ID"
+  value       = "${aws_subnet.main.id}"
 }
