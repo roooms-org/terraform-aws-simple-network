@@ -1,3 +1,3 @@
-variable "config_name" {
-  description = "Unique configuration name"
+variable "namespace" {
+  description = "Namespace for configuration"
 }
